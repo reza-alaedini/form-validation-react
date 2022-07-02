@@ -31,10 +31,10 @@ export const validate = (data) => {
     delete errors.confirmPassword;
   }
 
-  if (!data.isAccepted) {
-    errors.isAccepted = "You didn't Accept our Regulation!";
-  } else {
+  if (data.isAccepted) {
     delete errors.isAccepted;
+  } else {
+    errors.isAccepted = "You didn't Accept our Regulation!";
   }
 
   return errors;
